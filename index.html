@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Finance Management</title>
+  </head>
+  <body>
+    <img src="img/mangment.jpg" alt="header-photo" class="header" />
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <form class="sum">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="sumExpense">هزینه</div>
+                <div class="amountOfExpense">0</div>
+              </div>
+              <div class="col-md-6">
+                <div class="sumIncome">درآمد</div>
+                <div class="amountOfIncome">0</div>
+              </div>
+            </div>
+          </form>
+          <div>
+            <canvas id="lineChart" width="300" height="200"></canvas>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <form class="inputData">
+            <div class="row">
+              <div class="col-md-5" id="expense">
+                <label for="expenseIncome"> هزینه</label>
+                <input type="radio" name="expenseIncome" value="هزینه" />
+              </div>
+              <div class="col-md-5" id="expense">
+                <label for="expenseIncome"> درآمد</label>
+                <input type="radio" name="expenseIncome" value="درآمد" />
+              </div>
+            </div>
+            <label for="amount"> :مبلغ</label><br />
+            <input
+              type="number "
+              name="amount"
+              class="form-control"
+              id="amount"
+            />
+            <span class="errorAmount"></span>
+            <br />
+            <label for="date"> :تاریخ</label>
+            <div class="row" name="date">
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  min="1390"
+                  max="1420"
+                  class="form-control"
+                  id="year"
+                  placeholder="سال"
+                />
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  min="1"
+                  max="12"
+                  class="form-control"
+                  id="month"
+                  placeholder="ماه"
+                />
+              </div>
+
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  min="1"
+                  max="31"
+                  class="form-control"
+                  id="day"
+                  placeholder="روز"
+                />
+              </div>
+              <span class="errorDate"></span>
+            </div>
+            <label for="description"> :توضیحات</label><br />
+            <textarea
+              name="description"
+              id="description"
+              class="form-control"
+              rows="3"
+            ></textarea>
+            <span class="error"></span>
+            <button
+              type="button"
+              class="btn btn-success btn-lg btn-block mt-3"
+              id="submit"
+            >
+              ثبت دخل و خرج
+            </button>
+          </form>
+        </div>
+      </div>
+      <table class="table" id="list" style="width: 100%">
+        <thead class="thead-light">
+          <tr>
+            <th>توضیحات</th>
+            <th>نوع هزینه</th>
+            <th>تاریخ</th>
+            <th>مبلغ</th>
+            <th>ردیف</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>
